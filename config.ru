@@ -2,7 +2,7 @@ require 'dashing'
 
 configure do
   set :auth_token, ENV['AUTH_TOKEN']
-  set :default_dashboard, 'littlelines'
+  set :default_dashboard, 'sample'
 
   helpers do
     def protected!

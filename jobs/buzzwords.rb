@@ -2,7 +2,7 @@ buzzwords = ['Github', 'Heroku', 'Sliqr', 'Expresso',
   'Ruby', 'Rails', 'Coffeescript', 'Yoba', 'Coffee']
 buzzword_counts = Hash.new({ value: 0 })
 
-SCHEDULER.every '5s' do
+SCHEDULER.every '5m' do
   random_buzzword = buzzwords.sample
   buzzword_counts[random_buzzword] = {
     label: random_buzzword,

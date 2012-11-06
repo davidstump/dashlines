@@ -6,7 +6,7 @@ followers = 0
 friends = 0
 tweet_count = 0
 
-SCHEDULER.every '10m', :first_in => 0 do |job|
+SCHEDULER.every '30m', :first_in => 0 do |job|
   http = Net::HTTP.new('search.twitter.com')
   response = http.request(Net::HTTP::Get.new("/search.json?q=#{search_term}"))
   tweets = JSON.parse(response.body)["results"]
@@ -18,7 +18,7 @@ SCHEDULER.every '10m', :first_in => 0 do |job|
   end
 end
 
-SCHEDULER.every '10m', :first_in => 0 do |job|
+SCHEDULER.every '30m', :first_in => 0 do |job|
   http = Net::HTTP.new('api.twitter.com')
   response = http.request(Net::HTTP::Get.new("/1/users/show.json?screen_name=#{ENV['TWITTER_SCREEN_NAME']}"))
   followers = JSON.parse(response.body)["followers_count"]
@@ -26,7 +26,7 @@ SCHEDULER.every '10m', :first_in => 0 do |job|
   tweet_count = JSON.parse(response.body)["statuses_count"]
 end
 
-SCHEDULER.every '5s', :first_in => 0 do |job|
+SCHEDULER.every '10m', :first_in => 0 do |job|
   status = [
     { value: followers, max: 500, moreinfo: "Followers" },
     { value: friends, max: 100, moreinfo: "Friends"},
