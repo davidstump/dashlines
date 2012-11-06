@@ -6,4 +6,5 @@ SCHEDULER.every '10m' do
   people = site.recent_days.map.with_index{ |day, i| {x: i, y: day.people } }.reverse
   views = site.recent_days.map.with_index{ |day, i| {x: i, y: day.views } }.reverse
   send_event('gauges', points: people, pointsTwo: views )
+  # send_event('gauges', { current: 20, last: rand(20) })
 end
