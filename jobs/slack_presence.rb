@@ -25,7 +25,7 @@ SCHEDULER.every '30s' do
   active_map = slack_members.map do |u|
     data = {
         :fullname => u['real_name'],
-        :img => u['profile']['image_72'],
+        :img => u['profile']['image_192'],
         :presence_class => u['presence']
     }
 
