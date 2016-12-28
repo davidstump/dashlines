@@ -8,4 +8,5 @@ gem 'hashie'
 gem 'haml'
 gem 'slack-api'
 gem 'ruby-trello'
+gem 'twitter'
 gem 'dotenv', groups: [:development]
