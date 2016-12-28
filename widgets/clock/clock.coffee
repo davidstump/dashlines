@@ -6,6 +6,7 @@ class Dashing.Clock extends Dashing.Widget
   startTime: =>
     today = new Date()
     h = today.getHours()
+    seattle = h - 3
 
     if (h > 12)
       h -= 12
@@ -19,6 +20,7 @@ class Dashing.Clock extends Dashing.Widget
 
     @set('time', h + ":" + m)
     @set('date', today.toDateString())
+    @set('seattle-time', "Seattle: " + seattle + ":" + m)
 
   formatTime: (i) ->
     if i < 10 then "0" + i else i

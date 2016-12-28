@@ -1,0 +1,83 @@
+// ----------------------------------------------------------------------------
+// Sass declarations
+// ----------------------------------------------------------------------------
+$background-color-active: rgb(40, 185, 61);
+$background-color-away: rgb(27, 91, 204);
+$background-color-dnd: rgb(249, 46, 25);
+$background-color-offline: rgb(146, 146, 146);
+
+$label-color:       rgba(255, 255, 255, 0.7);
+$label-small-color: rgba(222, 222, 222, 0.70);
+
+// ----------------------------------------------------------------------------
+// Widget-slack_presence styles
+// ----------------------------------------------------------------------------
+.widget-slack-presence {
+  background-color: $background-color-offline;
+  vertical-align: top;
+
+  img {
+    width: 100px;
+    border-radius: 10px;
+    margin: 10px;
+    display: none;
+  }
+
+  .status-icon {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    border-radius: 1000px;
+    width: 10px;
+    height: 10px;
+    background-color: grey;
+  }
+
+  .active{
+    display: inline-block;
+    position: relative;
+    opacity: 1;
+    .status-icon {
+      background-color: green;
+    }
+    img {
+      display: inline-block;
+    }
+  }
+
+  .away {
+    display: inline-block;
+    opacity: 0.2;
+    position: relative;
+    .status-icon {
+      background-color: grey;
+    }
+    img {
+      display: inline-block;
+    }
+  }
+
+  .dnd {
+    display: inline-block;
+    opacity: 1;
+    position: relative;
+    .status-icon {
+      background-color: red;
+    }
+    img {
+      display: inline-block;
+    }
+  }
+
+  .offline {
+    display: inline-block;
+    opacity: 0.2;
+    position: relative;
+    .status-icon {
+      background-color: black;
+    }
+    img {
+      display: inline-block;
+    }
+  }
+}
