@@ -13,6 +13,11 @@ class Dashing.Clock extends Dashing.Widget
     else if (h == 0)
       h = 12
 
+    if (seattle > 12)
+      seattle -= 12
+    else if (seattle == 0)
+      seattle = 12
+
     m = today.getMinutes()
     s = today.getSeconds()
     m = @formatTime(m)
