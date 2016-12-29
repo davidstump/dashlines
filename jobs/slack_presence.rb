@@ -13,7 +13,7 @@ status_map = {
     '' => 'Offline'
 }
 
-SCHEDULER.every '30s' do
+SCHEDULER.every '30s', first_in: 0 do
 
 
   users_response = slack_client.users_list(presence: 1)
