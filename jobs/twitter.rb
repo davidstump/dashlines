@@ -20,7 +20,7 @@ SCHEDULER.every '10s', :first_in => 0 do |job|
     placeholder = {
       name: 'davidstump',
       body: "Littlelines should tweet more. 0.o",
-      avatar: 'https://pbs.twimg.com/profile_images/672429352080945152/3h3IAuD0.png'
+      avatar: 'https://pbs.twimg.com/profile_images/672429352080945152/3h3IAuD0_bigger.png'
     }
 
     send_event('twitter_mentions', comments: [placeholder])
