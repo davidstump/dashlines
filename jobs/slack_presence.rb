@@ -39,7 +39,11 @@ SCHEDULER.every '30s', first_in: 0 do
 
     data[:presence_name] = status_map[data[:presence_class]]
 
-    u['deleted'] == true ? nil : data
+    if u['deleted'] == true || u['is_bot'] == true || u['is_restricted'] == true
+      nil
+    else
+      data
+    end
   end
 
   send_event("slack_presence", {users: active_map.compact})

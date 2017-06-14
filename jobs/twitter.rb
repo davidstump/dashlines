@@ -7,7 +7,7 @@ Twitter.configure do |config|
   config.oauth_token_secret = ENV['TWITTER_OAUTH_SECRET']
 end
 
-search_term = URI::encode('littlelines')
+search_term = URI::encode('littlelines ruby elixir')
 
 SCHEDULER.every '10m', :first_in => 0 do |job|
   tweets = Twitter.search("#{search_term}").results
@@ -16,5 +16,7 @@ SCHEDULER.every '10m', :first_in => 0 do |job|
       { name: tweet.user.name, body: tweet.text, avatar: tweet.user.profile_image_url_https }
     end
     send_event('twitter_mentions', comments: tweets)
+  else
+    send_event('twitter_mentions', comments: {name: 'davidstump', body: "Littlelines should tweet more. 0.o", avatar: 'https://pbs.twimg.com/profile_images/672429352080945152/3h3IAuD0.png'})
   end
 end
