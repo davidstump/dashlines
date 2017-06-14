@@ -11,7 +11,7 @@ search_term = URI::encode('littlelines ruby elixir')
 
 SCHEDULER.every '10s', :first_in => 0 do |job|
   tweets = Twitter.search("#{search_term}").results
-  if twee5ts && tweets.any?
+  if tweets && tweets.any?
     tweets.map! do |tweet|
       { name: tweet.user.name, body: tweet.text, avatar: tweet.user.profile_image_url_https }
     end
